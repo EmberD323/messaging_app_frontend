@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 
 export default function HomePage (){
-    const [posts,setPosts,token,setToken,edit,setEdit,users,setUsers] = useOutletContext();
+    const [token,setToken] = useOutletContext();
   
     return (
         <div className="homepage">
