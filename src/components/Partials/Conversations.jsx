@@ -5,9 +5,12 @@ import CurrentConversation from "./CurrentConversation"
 
 function Conversations({receivedMessages,sentMessages}) {
     if(receivedMessages == null || sentMessages == null ){return}
-    const [seletedConversation,setSeletedConversation]=useState(null);
+    const [selectedConversation,setSelectedConversation]=useState(null);
+    const [selectedConversationPerson,setSelectedConversationPerson]=useState(null);
+
 
     const authors = receivedMessages.map((message) =>message.author);
+    
     const receivers = sentMessages.map((message) =>message.receiver);
     //get unique authors
     let setObj = new Set(authors.map(JSON.stringify));
@@ -19,14 +22,16 @@ function Conversations({receivedMessages,sentMessages}) {
         return found;
     } ));
     function handleConversationOpen(e){
-        console.log(e.target.id)
-        const conversationPerson = e.target.id;
-        const receivedMessagesInThisConvo = receivedMessages.filter((message) =>message.author.id == conversationPerson);
-        const sentMessagesInThisConvo = sentMessages.filter((message) =>message.receiver.id == conversationPerson);
+        const conversationPersonID = e.target.id;
+        const thisConversationPerson = conversationsWith.filter((person) =>person.id == conversationPersonID);
+        setSelectedConversationPerson(thisConversationPerson[0])
+        const receivedMessagesInThisConvo = receivedMessages.filter((message) =>message.author.id == conversationPersonID);
+        const sentMessagesInThisConvo = sentMessages.filter((message) =>message.receiver.id == conversationPersonID);
         const allMessagesInThisConvo = receivedMessagesInThisConvo.concat(sentMessagesInThisConvo);
         const sortedMessages = allMessagesInThisConvo.sort((a, b) => a.id-b.id);
-        setSeletedConversation(sortedMessages);
+        setSelectedConversation(sortedMessages);
     }
+  
     return(
         <div className="conversations">
             
@@ -42,7 +47,7 @@ function Conversations({receivedMessages,sentMessages}) {
                     })}
                 </ul>
             </div>
-            <CurrentConversation seletedConversation={seletedConversation}/> 
+            <CurrentConversation selectedConversation={selectedConversation} selectedConversationPerson={selectedConversationPerson} setSelectedConversation={setSelectedConversation}/> 
 
             
         </div>

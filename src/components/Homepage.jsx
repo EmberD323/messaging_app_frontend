@@ -5,7 +5,7 @@ import Conversations from "./Partials/Conversations"
 
 
 export default function HomePage (){
-    const [token,setToken] = useOutletContext();
+    const [token,setToken,edit,setEdit] = useOutletContext();
     const [error,setError]=useState(null);
     const [loading,setLoading] = useState(true);
     const [receivedMessages,setReceivedMessages]=useState(null);
@@ -40,7 +40,7 @@ export default function HomePage (){
         .then((json)=>setSentMessages(json))
         .catch((error)=>setError(error))
         .finally(()=>setLoading(false));
-    },[token])
+    },[edit])
 
     
     if(error) return <p>{error}</p>

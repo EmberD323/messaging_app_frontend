@@ -10,7 +10,8 @@ const App = () => {
   // const [loading,setLoading] = useState(true);
   const initalToken = localStorage.getItem("token");
   const [token,setToken] = useState(initalToken);
-  // const [edit,setEdit] = useState(true);
+
+  const [edit,setEdit] = useState(true);
   // const [users,setUsers] = useState(null);
 
 //<Outlet context={[posts,setPosts,token,setToken,edit,setEdit,users,setUsers]}/>
@@ -21,7 +22,7 @@ const App = () => {
   return (
     <>
       <NavBar token={token} setToken={setToken}/>
-      <Outlet context={[token,setToken]}/>
+      <Outlet context={[token,setToken,edit,setEdit]}/>
     </>
   );
 };

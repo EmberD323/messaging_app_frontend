@@ -1,23 +1,24 @@
 import { Link,useNavigate} from "react-router-dom";
+import Message from "./Message"
+import NewMessage from "./NewMessage"
 
-function NavBar({seletedConversation}) {
-    if(seletedConversation == null) return;
-    console.log(seletedConversation)
+function CurrentConversation({selectedConversation,selectedConversationPerson,setSelectedConversation}) {
+    if(selectedConversation == null) return;
 
     return (
-        <ul>
-                    {seletedConversation.map((message) => {
-                        return(
-                        <li key={message.id}>
-                            <div className="name" >{message.author.first_name} {message.author.last_name}</div>
-                            <div className="time">{message.createdAt}</div>
-                            <div className="text">{message.text}</div>
-                        </li>)
-                    })}
-                </ul>
+        <div className="currentConversation">
+            <ul>
+                {selectedConversation.map((message) => {
+                    return(
+                    <Message message={message}></Message>
+                    )
+                })}
+            </ul>
+            <NewMessage selectedConversationPerson={selectedConversationPerson} selectedConversation={selectedConversation} setSelectedConversation={setSelectedConversation}/> 
+        </div>
     )
 
     
 }
 
-export default NavBar;
+export default CurrentConversation;
