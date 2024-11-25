@@ -7,6 +7,7 @@ function NavBar({token,setToken}) {
         localStorage.removeItem("token");
         navigate('../');
     }
+    
     if(typeof token == "object"){
         return (
             <div className="navBar">
@@ -35,6 +36,7 @@ function NavBar({token,setToken}) {
                 </div>
                 <h1 className="heading">Messaging App</h1>
                 <div className="user">
+                    <Link to="profile">Profile</Link>
                     <button onClick={handleLogout}>Log out</button>
                 </div>
             </div>
