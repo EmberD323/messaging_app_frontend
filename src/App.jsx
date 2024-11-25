@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+
 import "./styles/App.css"
 import { Outlet } from "react-router-dom";
+import NavBar from "./components/Partials/NavBar"
 
 const App = () => {
   // const [posts,setPosts]=useState(null);
@@ -15,8 +17,10 @@ const App = () => {
 
   // if(error) return <p>Error</p>
   // if(loading) return <p>Loading</p>
+  
   return (
     <>
+      <NavBar token={token} setToken={setToken}/>
       <Outlet context={[token,setToken]}/>
     </>
   );
