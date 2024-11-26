@@ -1,6 +1,8 @@
 import { Link,useNavigate} from "react-router-dom";
 import { useState,useEffect } from "react";
 import CurrentConversation from "./CurrentConversation"
+import ProfileAvatar from "./ProfileAvatar"
+
 
 
 function Conversations({receivedMessages,sentMessages}) {
@@ -22,7 +24,7 @@ function Conversations({receivedMessages,sentMessages}) {
         return found;
     } ));
     function handleConversationOpen(e){
-        const conversationPersonID = e.target.id;
+        const conversationPersonID = e.target.parentNode.id;
         const thisConversationPerson = conversationsWith.filter((person) =>person.id == conversationPersonID);
         setSelectedConversationPerson(thisConversationPerson[0])
         const receivedMessagesInThisConvo = receivedMessages.filter((message) =>message.author.id == conversationPersonID);
@@ -40,9 +42,11 @@ function Conversations({receivedMessages,sentMessages}) {
                 <ul>
                     {conversationsWith.map((author) => {
                         return(
-                        <li key={author.id} onClick={handleConversationOpen} style={{cursor:"grab"}}>
-                            <div className="name" id={author.id}>{author.first_name} {author.last_name}</div>
-                            <div className="picture"></div>
+                        <li key={author.id} id={author.id} onClick={handleConversationOpen} style={{cursor:"grab"}}>
+                    
+                            <ProfileAvatar profile={author.profile}/>
+                            <div className="name" >{author.first_name} {author.last_name}</div>
+                            
                         </li>)
                     })}
                 </ul>

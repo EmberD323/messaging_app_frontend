@@ -40,6 +40,7 @@ export default function Profile (){
         .catch((error)=>setError(error))
         .finally(()=>setLoading(false));
     },[updateProfile])
+    console.log(profile)
 
     if(error) return <p>{error}</p>
     if(loading) return <p>Loading</p>

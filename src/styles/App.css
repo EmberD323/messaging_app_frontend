@@ -22,3 +22,6 @@ body{
 .profilePic{
   max-width: 200px;
 }
+.avatar{
+  max-width: 50px;
+}
