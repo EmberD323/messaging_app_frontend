@@ -52,7 +52,7 @@ export default function Profile (){
                 <div className="bio">Bio: </div>
                 <button onClick={handleFormOpen}>Update Profile</button>
                 <div className="formContainer" id={formOpen}>
-                    <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} formOpen={formOpen}/>
+                    <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} formOpen={formOpen} profile={{bio:" "}}/>
                 </div>
 
             </div>
@@ -66,7 +66,7 @@ export default function Profile (){
             <div className="bio">Bio: {profile.bio}</div>
             <button onClick={handleFormOpen}>Update Profile</button>
             <div className="formContainer" id={formOpen}>
-            <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} formOpen={formOpen}/>
+            <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} formOpen={formOpen} profile={profile}/>
             </div>
 
         </div>
