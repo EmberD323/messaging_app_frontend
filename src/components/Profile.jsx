@@ -1,5 +1,6 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext,useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
+import Update from './Partials/UpdateProfile.jsx';
 
 export default function Profile (){
     
@@ -7,7 +8,10 @@ export default function Profile (){
     const [error,setError]=useState(null);
     const [loading,setLoading] = useState(true);
     const [user,setUser] = useState(undefined);
-
+    const [formOpen,setFormOpen] = useState("false");
+    function handleFormOpen(){
+        setFormOpen("true")
+    }
     //fetch user profile
     useEffect(()=>{
         console.log("hi")
@@ -38,7 +42,10 @@ export default function Profile (){
                 <div className="name">Name: {user.first_name} {user.last_name}</div>
                 <div className="name">Email: {user.username}</div>
                 <div className="bio">Bio: No Bio</div>
-                <button>Update Profile</button>
+                <button onClick={handleFormOpen} id={formOpen}>Update Profile</button>
+                <div className="formContainer" id={formOpen}>
+                    <Update/>
+                </div>
 
             </div>
         )
@@ -49,7 +56,10 @@ export default function Profile (){
             <div className="name">Name: {user.first_name} {user.last_name}</div>
             <div className="name">Email: {user.username}</div>
             <div className="bio">Bio: {user.profile.bio}</div>
-            <button>Update Profile</button>
+            <button onClick={handleFormOpen}>Update Profile</button>
+            <div className="formContainer" id={formOpen}>
+                    <Update/>
+            </div>
 
         </div>
     )

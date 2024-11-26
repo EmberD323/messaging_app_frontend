@@ -12,3 +12,10 @@
 body{
   margin: 0;
 }
+
+.formContainer#false,.profile>button#true{
+  display:none;
+}
+.formContainer#true,.profile>button#false{
+  display: inline;
+}
