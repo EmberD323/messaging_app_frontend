@@ -19,3 +19,6 @@ body{
 .formContainer#true,.profile>button#false{
   display: inline;
 }
+.profilePic{
+  max-width: 200px;
+}
