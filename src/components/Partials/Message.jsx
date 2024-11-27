@@ -7,12 +7,11 @@ function Message({message}) {
     const time = dateTime.getHours()+":"+dateTime.getMinutes()
     //return message details
     return (
-        <li key={message.id}>
-            <ProfileAvatar profile={message.author.profile}/>
-            <div className="name" >{message.author.first_name} {message.author.last_name}</div>
-            <div className="time">{dayMonthYear} @ {time}</div>
-            <div className="text">{message.text}</div>
-        </li>          
+            <>
+            <ProfileAvatar profile={message.author.profile} />
+            <div className="name">{message.author.first_name} {message.author.last_name}</div>
+            <div className="time">{dayMonthYear} @ {time}</div><div className="text">{message.text}</div>
+            </>     
     )
 }
 

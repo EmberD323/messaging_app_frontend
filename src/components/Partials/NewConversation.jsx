@@ -4,7 +4,7 @@ import Errors from "../Partials/Errors"
 
 export default function NewMessage ({handleConversationOpen}){
     const [token,setToken,edit,setEdit] = useOutletContext();
-    const[username,setUsername] = useState(undefined);
+    const[username,setUsername] = useState("");
     const[formErrors,setFormErrors] = useState(null);
 
     //search for username and return user if found

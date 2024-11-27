@@ -12,7 +12,9 @@ function CurrentConversation({selectedConversation,selectedConversationPerson,se
             <ul>
                 {selectedConversation.map((message) => {
                     return(
-                        <Message message={message}></Message>
+                        <li key={message.id}>
+                            <Message message={message}></Message>
+                        </li> 
                     )
                 })}
             </ul>
