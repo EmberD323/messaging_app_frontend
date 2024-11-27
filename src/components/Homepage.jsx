@@ -1,6 +1,8 @@
 import { useOutletContext } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Conversations from "./Partials/Conversations"
+import loadingImage from "../assets/icons8-loading-60.png"
+
 
 export default function HomePage (){
     const [token,setToken,edit,setEdit] = useOutletContext();
@@ -42,7 +44,12 @@ export default function HomePage (){
     },[edit])
 
     if(error) return <p>{error}</p>
-    if(loading) return <p>Loading</p>
+    if(loading) return (
+      <div className="loading">
+          <div>Loading</div>
+          <img className="loadingImage" src={loadingImage} alt="loading" />
+      </div>
+  )
     return (
         <div className="homepage">
             <Conversations receivedMessages={receivedMessages} sentMessages={sentMessages}/>

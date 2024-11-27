@@ -1,6 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Update from './Partials/UpdateProfile.jsx';
+import Loading from "./Loading.jsx";
 
 export default function Profile (){
     const [token,setToken,edit,setEdit] = useOutletContext();
@@ -41,7 +42,7 @@ export default function Profile (){
     },[updateProfile])
 
     if(error) return <p>{error}</p>
-    if(loading) return <p>Loading</p>
+    if(loading) return <Loading/>
     if(profile == null){
         return(
             <div className="profile">

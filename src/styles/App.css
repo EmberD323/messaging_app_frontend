@@ -1,6 +1,5 @@
 #root {
   margin: 0 auto;
-  padding:2rem;
   text-align: center;
   --wenge: #65524dff;
   --cool-gray: #817e9fff;
@@ -12,7 +11,27 @@
 body{
   margin: 0;
 }
-
+.navBar{
+  display:grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  background-color: var(--wenge);
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+.navBar>.routes,.navBar>.user{
+  display: flex;
+  gap:15px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.routes>a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  gap:5px;
+  align-items: center;
+}
 .formContainer#false,.profile>button#true{
   display:none;
 }
@@ -24,4 +43,25 @@ body{
 }
 .avatar{
   max-width: 50px;
+}
+.loading{
+  height:100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:15px;
+  justify-content: center;
+  font-size: 25px;
+}
+.loadingImage{
+  width: 100px;
+  animation: rotating 2s linear  infinite ;
+}
+@keyframes rotating { 
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
 }

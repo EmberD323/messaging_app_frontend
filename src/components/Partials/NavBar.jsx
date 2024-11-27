@@ -15,7 +15,7 @@ function NavBar({token,setToken}) {
                 <div className="routes">
                     <Link to="homepage">
                         <div>Home</div>
-                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/0a2463/home.png" alt="home"/>
+                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/home.png" alt="home"/>
                     </Link>
                 </div>
                 <h1 className="heading">Messaging App</h1>
@@ -32,12 +32,16 @@ function NavBar({token,setToken}) {
                 <div className="routes">
                     <Link to="homepage">
                         <div>Home</div>
-                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/efaac4/home.png" alt="home"/>
+                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/home.png" alt="home"/>
+                    </Link>
+
+                    <Link to="profile">
+                        <div>My Profile</div>
+                        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" alt="person-male"/>
                     </Link>
                 </div>
                 <h1 className="heading">Messaging App</h1>
                 <div className="user">
-                    <Link to="profile">Profile</Link>
                     <button onClick={handleLogout}>Log out</button>
                 </div>
             </div>

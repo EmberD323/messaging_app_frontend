@@ -1,5 +1,7 @@
 import { useOutletContext, useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
+import Loading from "./Loading";
+
 
 export default function FriendProfile (){
     let {id} = useParams();
@@ -35,7 +37,7 @@ export default function FriendProfile (){
     },[])
 
     if(error) return <p>error</p>
-    if(loading) return <p>Loading</p>
+    if(loading) return <Loading/>
     if(profile == null){
         return(
             <div className="profile">
