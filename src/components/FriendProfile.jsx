@@ -1,24 +1,19 @@
-import { useOutletContext,useNavigate } from "react-router-dom";
+import { useOutletContext,useNavigate, useParams, useLocation } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Update from './Partials/UpdateProfile.jsx';
 
-export default function Profile (){
-    
+export default function FriendProfile (){
+    let {id} = useParams();
     const [token,setToken,edit,setEdit] = useOutletContext();
     const [error,setError]=useState(null);
     const [loading,setLoading] = useState(true);
     const [profile,setProfile] = useState(null);
-    const [user,setUser] = useState(undefined);
-    const [updateProfile,setUpdateProfile] = useState(false);
+    const [user,setUser] = useState(null);
 
-
-    const [formOpen,setFormOpen] = useState("false");
-    function handleFormOpen(){
-        setFormOpen("true")
-    }
-    //fetch user profile
+    //get user info and loading screen
+    // userRouter.get("/profiles/:userid",verifyToken, userController.singleProfileGet);
     useEffect(()=>{
-        fetch(import.meta.env.VITE_BACKEND +"/profile",{
+        fetch(import.meta.env.VITE_BACKEND +"/profiles/"+id,{
           method: "GET",
           mode:"cors",
           headers: {
@@ -30,19 +25,20 @@ export default function Profile (){
         .then((json)=>{
             //heck for null profile
             if(json.profile){
+                console.log(json)
                 setProfile(json.profile)
                 setUser(json.profile.user)
             }
             else{
+                console.log(json)
                 setUser(json.user)
             }
         })
         .catch((error)=>setError(error))
         .finally(()=>setLoading(false));
-    },[updateProfile])
-    console.log(profile)
+    },[])
 
-    if(error) return <p>{error}</p>
+    if(error) return <p>error</p>
     if(loading) return <p>Loading</p>
     if(profile == null){
         return(
@@ -51,11 +47,6 @@ export default function Profile (){
                 <div className="name">Name: {user.first_name} {user.last_name}</div>
                 <div className="name">Email: {user.username}</div>
                 <div className="bio">Bio: </div>
-                <button onClick={handleFormOpen}>Update Profile</button>
-                <div className="formContainer" id={formOpen}>
-                    <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} formOpen={formOpen} profile={{bio:" "}}/>
-                </div>
-
             </div>
         )
     }
@@ -65,10 +56,6 @@ export default function Profile (){
             <div className="name">Name: {user.first_name} {user.last_name}</div>
             <div className="name">Email: {user.username}</div>
             <div className="bio">Bio: {profile.bio}</div>
-            <button onClick={handleFormOpen}>Update Profile</button>
-            <div className="formContainer" id={formOpen}>
-            <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} formOpen={formOpen} profile={profile}/>
-            </div>
 
         </div>
     )

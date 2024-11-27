@@ -39,12 +39,14 @@ function Conversations({receivedMessages,sentMessages}) {
                 <NewConversation conversationsWith={conversationsWith} handleConversationOpen={handleConversationOpen}/>  
                 <ul>
                     {conversationsWith.map((author) => {
+                        console.log(author)
                         return(
                         <li key={author.id} id={author.id} onClick={handleConversationOpen} style={{cursor:"grab"}}>
                     
                             <ProfileAvatar profile={author.profile}/>
                             <div className="name" >{author.first_name} {author.last_name}</div>
-                            
+                            <Link to={"../profile/"+author.id}>Profile</Link>
+
                         </li>)
                     })}
                 </ul>

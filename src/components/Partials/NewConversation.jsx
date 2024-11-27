@@ -24,20 +24,8 @@ export default function NewMessage ({conversationsWith,handleConversationOpen}){
         }
         else{
             const user = await response.json();
-            console.log(user)
-            const findUser = conversationsWith.filter((person) =>person.id == user.id);
-           
-                e = {target:{parentNode:{id:user.id}}};
-                handleConversationOpen(e);
-            
-            
-
-            // const updatedConversation = selectedConversation;
-            // updatedConversation.push(message)
-            // setSelectedConversation(updatedConversation);
-            // setText("");
-            // //reload fetch
-            // setEdit(!edit);
+            e = {target:{parentNode:{id:user.id}}};
+            handleConversationOpen(e);
         }
 
     }
