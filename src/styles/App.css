@@ -1,5 +1,5 @@
 #root {
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
   --wenge: #65524dff;
   --cool-gray: #817e9fff;
@@ -7,6 +7,7 @@
   --light-green: #b5ef8aff;
   --mindaro: #d7f171ff;
   font-family: "Arvo", serif;
+  height:100vh;
 }
 body{
   margin: 0;
@@ -48,6 +49,32 @@ body{
 .navBar>h1{
   font-weight: 100;
 }
+.notLoggedIn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  gap:10px;
+  padding: 25px;
+  position: absolute;
+  left: 50%;
+  top:30%;
+  transform: translate(-50%, 50%);
+  background-color: var(--cambridge-blue);
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 2px var(--wenge);
+  color:white
+
+}
+a{
+  color: white;
+}
+/* .homepage{
+  background-image:url("../assets/vecteezy_striped-red-and-white-diagonal-pattern_7104340-1.jpg");
+  background-color: #cccccc;
+  background-size: contain;
+} */
 .formContainer#false,.profile>button#true{
   display:none;
 }

@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext,Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Conversations from "./Partials/Conversations"
 import loadingImage from "../assets/icons8-loading-60.png"
@@ -12,7 +12,13 @@ export default function HomePage (){
     const [sentMessages,setSentMessages]=useState(null);
     //if not logged in
     if(typeof token == "object"){
-        return <div>Login or signup!</div>
+        return (
+          <div className="notLoggedIn">
+            <img width="96" height="96" src="https://img.icons8.com/forma-light/96/d7f171/speech-bubble-with-dots.png" alt="speech-bubble-with-dots"/>
+            <div>Welcome to Messaging App.</div>
+            <div><Link to="login">Log in</Link> or <Link to="signup">Sign Up</Link> today to start chatting!</div>
+           </div>
+          )
     }
 
     //get all messages sent and recieved by user
