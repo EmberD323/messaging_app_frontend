@@ -2,17 +2,14 @@ import { Link,useNavigate} from "react-router-dom";
 import { useState,useEffect } from "react";
 import CurrentConversation from "./CurrentConversation"
 import ProfileAvatar from "./ProfileAvatar"
-
+import NewConversation from "./NewConversation"
 
 
 function Conversations({receivedMessages,sentMessages}) {
     if(receivedMessages == null || sentMessages == null ){return}
     const [selectedConversation,setSelectedConversation]=useState(null);
     const [selectedConversationPerson,setSelectedConversationPerson]=useState(null);
-
-
     const authors = receivedMessages.map((message) =>message.author);
-    
     const receivers = sentMessages.map((message) =>message.receiver);
     //get unique authors
     let setObj = new Set(authors.map(JSON.stringify));
@@ -38,7 +35,8 @@ function Conversations({receivedMessages,sentMessages}) {
         <div className="conversations">
             
             <div className="conversationCards">
-                <h2>Conversations</h2>  
+                <h2>Conversations</h2>
+                <NewConversation conversationsWith={conversationsWith} handleConversationOpen={handleConversationOpen}/>  
                 <ul>
                     {conversationsWith.map((author) => {
                         return(
