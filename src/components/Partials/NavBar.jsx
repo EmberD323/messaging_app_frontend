@@ -6,7 +6,7 @@ function NavBar({token,setToken}) {
     function handleLogout(){
         localStorage.removeItem("token");
         setToken(null);
-        navigate('../');
+        navigate('../login');
     }
     //if token is null
     if(typeof token == "object"){

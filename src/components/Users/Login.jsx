@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useOutletContext,useNavigate } from "react-router-dom";
 import Errors from "../Partials/Errors"
 export default function Login (){
-    const[username,setUsername] = useState(null);
-    const[password,setPassword] = useState(null);
+    const[username,setUsername] = useState("");
+    const[password,setPassword] = useState("");
     const[formErrors,setFormErrors] = useState(null);
     const [token,setToken,edit,setEdit] = useOutletContext();
 
@@ -18,6 +18,7 @@ export default function Login (){
     //submit login details to db
     async function handleSubmit(e){
         e.preventDefault();
+        console.log("hi")
         try {
             const response = await fetch(import.meta.env.VITE_BACKEND +"/login", {
               method: "POST",
@@ -27,6 +28,7 @@ export default function Login (){
                 },
               body: JSON.stringify({username,password}),
             });        
+            console.log(response)
             if(response.status != 200){
                 const json = await response.json();
                 setFormErrors(json.errors)
@@ -42,6 +44,7 @@ export default function Login (){
             console.error(er);
           }
     }
+
     return (
         <div className="content">
             <h2>Log in</h2>
