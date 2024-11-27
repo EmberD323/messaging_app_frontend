@@ -25,7 +25,7 @@ export default function NewMessage ({handleConversationOpen}){
         else{
             const user = await response.json();
             e = {target:{parentNode:{id:user.id}}};
-            handleConversationOpen(e);
+            handleConversationOpen(e,user);
         }
 
     }

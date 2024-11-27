@@ -24,10 +24,18 @@ function Conversations({receivedMessages,sentMessages}) {
     } ));
 
     //conversation selected, show messages
-    function handleConversationOpen(e){
+    function handleConversationOpen(e,newUser){
         const conversationPersonID = e.target.parentNode.id;
-        const thisConversationPerson = conversationsWith.filter((person) =>person.id == conversationPersonID);
-        setSelectedConversationPerson(thisConversationPerson[0])
+        let thisConversationPerson = conversationsWith.filter((person) =>person.id == conversationPersonID);
+        //if this is a new conversation
+        if(thisConversationPerson[0] == undefined){
+            //return user
+            thisConversationPerson = newUser;
+            setSelectedConversationPerson(thisConversationPerson)
+        }
+        else{
+            setSelectedConversationPerson(thisConversationPerson[0])
+        }
         const receivedMessagesInThisConvo = receivedMessages.filter((message) =>message.author.id == conversationPersonID);
         const sentMessagesInThisConvo = sentMessages.filter((message) =>message.receiver.id == conversationPersonID);
         const allMessagesInThisConvo = receivedMessagesInThisConvo.concat(sentMessagesInThisConvo);
