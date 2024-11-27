@@ -1,8 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import { useState,useEffect } from "react";
-
 import Conversations from "./Partials/Conversations"
-
 
 export default function HomePage (){
     const [token,setToken,edit,setEdit] = useOutletContext();
@@ -10,11 +8,12 @@ export default function HomePage (){
     const [loading,setLoading] = useState(true);
     const [receivedMessages,setReceivedMessages]=useState(null);
     const [sentMessages,setSentMessages]=useState(null);
+    //if not logged in
     if(typeof token == "object"){
         return <div>Login or signup!</div>
     }
 
-    //fetch user messages 
+    //get all messages sent and recieved by user
     useEffect(()=>{
         fetch(import.meta.env.VITE_BACKEND +"/messages/received",{
             method: "GET",
@@ -42,12 +41,8 @@ export default function HomePage (){
         .finally(()=>setLoading(false));
     },[edit])
 
-    
     if(error) return <p>{error}</p>
     if(loading) return <p>Loading</p>
-
-    
-  
     return (
         <div className="homepage">
             <Conversations receivedMessages={receivedMessages} sentMessages={sentMessages}/>

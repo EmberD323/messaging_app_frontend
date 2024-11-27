@@ -1,14 +1,14 @@
-import { useState,useEffect } from "react";
-import { useParams,useOutletContext,useNavigate } from "react-router-dom";
+import { useState} from "react";
+import { useOutletContext} from "react-router-dom";
 import Errors from "./Errors"
 
-export default function Update ({setUpdateProfile,updateProfile,setFormOpen,formOpen,profile}){
+export default function Update ({setUpdateProfile,updateProfile,setFormOpen,profile}){
     const [token,setToken,edit,setEdit] = useOutletContext();
     const[bio,setBio] = useState(profile.bio);
     const[file,setFile] = useState(undefined);
-
     const[formErrors,setFormErrors] = useState(null);
 
+    //send profile to db
     async function handleSubmit(e){
         e.preventDefault();
         //max file size: 2MB
@@ -19,7 +19,6 @@ export default function Update ({setUpdateProfile,updateProfile,setFormOpen,form
                 return
             }
         }
-        
         const form = new FormData();
         form.append('file', file);
         form.append('bio', bio);
@@ -31,18 +30,14 @@ export default function Update ({setUpdateProfile,updateProfile,setFormOpen,form
             },
             body:form
         }); 
-        console.log(response)
         if(response.status != 200){//if theres errors
             const errors = await response.json();
             setFormErrors(errors)
         }
         else{
-            console.log(response)
             setUpdateProfile(!updateProfile)
             setFormOpen("false")
-
         }
-
     }
     function handleBioChange(e){
         setBio(e.target.value)
@@ -51,7 +46,6 @@ export default function Update ({setUpdateProfile,updateProfile,setFormOpen,form
         setFile(e.target.files[0])
     }
     return (
-        
         <div className="formContainer">
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <label htmlFor="bio">Bio:</label>

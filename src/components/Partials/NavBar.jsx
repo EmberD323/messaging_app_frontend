@@ -2,12 +2,13 @@ import { Link,useNavigate} from "react-router-dom";
 
 function NavBar({token,setToken}) {
     const navigate = useNavigate()
+    //remove token and route to homepage
     function handleLogout(){
-        setToken(null);
         localStorage.removeItem("token");
+        setToken(null);
         navigate('../');
     }
-    
+    //if token is null
     if(typeof token == "object"){
         return (
             <div className="navBar">

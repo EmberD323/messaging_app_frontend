@@ -1,12 +1,13 @@
-import { useState,useEffect } from "react";
-import { useParams,useOutletContext,useNavigate } from "react-router-dom";
+import { useState} from "react";
+import {useOutletContext } from "react-router-dom";
 import Errors from "../Partials/Errors"
 
-export default function NewMessage ({conversationsWith,handleConversationOpen}){
+export default function NewMessage ({handleConversationOpen}){
     const [token,setToken,edit,setEdit] = useOutletContext();
     const[username,setUsername] = useState(undefined);
     const[formErrors,setFormErrors] = useState(null);
 
+    //search for username and return user if found
     async function handleSearch(e){
         e.preventDefault();
         const response = await fetch(import.meta.env.VITE_BACKEND+"/users/"+username, {
@@ -17,7 +18,6 @@ export default function NewMessage ({conversationsWith,handleConversationOpen}){
               "authorization": "Bearer " +token
             },
         }); 
-        
         if(response.status != 200){//if theres errors
             const errors = await response.json();
             setFormErrors(errors)

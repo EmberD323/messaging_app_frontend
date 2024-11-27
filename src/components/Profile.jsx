@@ -1,22 +1,21 @@
-import { useOutletContext,useNavigate } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Update from './Partials/UpdateProfile.jsx';
 
 export default function Profile (){
-    
     const [token,setToken,edit,setEdit] = useOutletContext();
     const [error,setError]=useState(null);
     const [loading,setLoading] = useState(true);
     const [profile,setProfile] = useState(null);
     const [user,setUser] = useState(undefined);
     const [updateProfile,setUpdateProfile] = useState(false);
-
-
     const [formOpen,setFormOpen] = useState("false");
+
     function handleFormOpen(){
         setFormOpen("true")
     }
-    //fetch user profile
+
+    //get user profile from db on intial render and when profile updated.
     useEffect(()=>{
         fetch(import.meta.env.VITE_BACKEND +"/profile",{
           method: "GET",
@@ -40,7 +39,6 @@ export default function Profile (){
         .catch((error)=>setError(error))
         .finally(()=>setLoading(false));
     },[updateProfile])
-    console.log(profile)
 
     if(error) return <p>{error}</p>
     if(loading) return <p>Loading</p>
@@ -53,9 +51,8 @@ export default function Profile (){
                 <div className="bio">Bio: </div>
                 <button onClick={handleFormOpen}>Update Profile</button>
                 <div className="formContainer" id={formOpen}>
-                    <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} formOpen={formOpen} profile={{bio:" "}}/>
+                    <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} profile={{bio:" "}}/>
                 </div>
-
             </div>
         )
     }
@@ -67,9 +64,8 @@ export default function Profile (){
             <div className="bio">Bio: {profile.bio}</div>
             <button onClick={handleFormOpen}>Update Profile</button>
             <div className="formContainer" id={formOpen}>
-            <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} formOpen={formOpen} profile={profile}/>
+            <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} profile={profile}/>
             </div>
-
         </div>
     )
     

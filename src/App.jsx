@@ -5,20 +5,10 @@ import { Outlet } from "react-router-dom";
 import NavBar from "./components/Partials/NavBar"
 
 const App = () => {
-  // const [posts,setPosts]=useState(null);
-  // const [error,setError]=useState(null);
-  // const [loading,setLoading] = useState(true);
+  //check local storage for token and set as state
   const initalToken = localStorage.getItem("token");
   const [token,setToken] = useState(initalToken);
-
-  const [edit,setEdit] = useState(true);
-  // const [users,setUsers] = useState(null);
-
-//<Outlet context={[posts,setPosts,token,setToken,edit,setEdit,users,setUsers]}/>
-
-  // if(error) return <p>Error</p>
-  // if(loading) return <p>Loading</p>
-  
+  const [edit,setEdit] = useState(true); 
   return (
     <>
       <NavBar token={token} setToken={setToken}/>

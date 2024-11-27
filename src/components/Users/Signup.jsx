@@ -2,8 +2,6 @@ import {  useState } from "react";
 import {useNavigate } from "react-router-dom";
 import Errors from "../Partials/Errors";
 
-
-
 export default function SignUp (){
     const[first_name,setFirstName] = useState(null);
     const[last_name,setLastName] = useState(null);
@@ -29,6 +27,7 @@ export default function SignUp (){
     }
 
     const navigate = useNavigate()
+    //send signup data to db
     async function handleSubmit(e){
         e.preventDefault();
         try {

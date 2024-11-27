@@ -5,7 +5,7 @@ export default function Login (){
     const[username,setUsername] = useState(null);
     const[password,setPassword] = useState(null);
     const[formErrors,setFormErrors] = useState(null);
-    const [token,setToken,,edit,setEdit] = useOutletContext();
+    const [token,setToken,edit,setEdit] = useOutletContext();
 
     function handleUsernameChange(e){
         setUsername(e.target.value)
@@ -13,7 +13,9 @@ export default function Login (){
     function handlePasswordChange(e){
         setPassword(e.target.value)
     }
+
     const navigate = useNavigate()
+    //submit login details to db
     async function handleSubmit(e){
         e.preventDefault();
         try {
@@ -29,9 +31,9 @@ export default function Login (){
                 const json = await response.json();
                 setFormErrors(json.errors)
             }else{ 
+                //add token to local storage
                 const json = await response.json();
                 const thisToken = json.token;
-                const user = json.user;
                 setToken(thisToken)
                 localStorage.setItem("token", thisToken);
                 navigate('../homepage');
@@ -52,7 +54,6 @@ export default function Login (){
             </form>
             <Errors errors={formErrors}/>
         </div>
-    
     )
 }
 

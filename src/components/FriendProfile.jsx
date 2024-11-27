@@ -1,6 +1,5 @@
-import { useOutletContext,useNavigate, useParams, useLocation } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
-import Update from './Partials/UpdateProfile.jsx';
 
 export default function FriendProfile (){
     let {id} = useParams();
@@ -10,8 +9,7 @@ export default function FriendProfile (){
     const [profile,setProfile] = useState(null);
     const [user,setUser] = useState(null);
 
-    //get user info and loading screen
-    // userRouter.get("/profiles/:userid",verifyToken, userController.singleProfileGet);
+    //get profile and user info from db
     useEffect(()=>{
         fetch(import.meta.env.VITE_BACKEND +"/profiles/"+id,{
           method: "GET",
@@ -25,12 +23,10 @@ export default function FriendProfile (){
         .then((json)=>{
             //heck for null profile
             if(json.profile){
-                console.log(json)
                 setProfile(json.profile)
                 setUser(json.profile.user)
             }
             else{
-                console.log(json)
                 setUser(json.user)
             }
         })
@@ -56,7 +52,6 @@ export default function FriendProfile (){
             <div className="name">Name: {user.first_name} {user.last_name}</div>
             <div className="name">Email: {user.username}</div>
             <div className="bio">Bio: {profile.bio}</div>
-
         </div>
     )
     

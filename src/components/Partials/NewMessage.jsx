@@ -1,5 +1,5 @@
-import { useState,useEffect } from "react";
-import { useParams,useOutletContext,useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import Errors from "../Partials/Errors"
 
 export default function NewMessage ({selectedConversationPerson,selectedConversation,setSelectedConversation}){
@@ -7,6 +7,7 @@ export default function NewMessage ({selectedConversationPerson,selectedConversa
     const[text,setText] = useState(undefined);
     const[formErrors,setFormErrors] = useState(null);
 
+    //send message to db
     async function handleSubmit(e){
         e.preventDefault();
         const personID = selectedConversationPerson.id;
@@ -26,14 +27,15 @@ export default function NewMessage ({selectedConversationPerson,selectedConversa
         }
         else{
             const message = await response.json();
+            //include new message in the conversation
             const updatedConversation = selectedConversation;
             updatedConversation.push(message)
             setSelectedConversation(updatedConversation);
+            //clear form
             setText("");
             //reload fetch
             setEdit(!edit);
         }
-
     }
     function handleTextChange(e){
         setText(e.target.value)
