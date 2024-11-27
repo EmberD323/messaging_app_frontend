@@ -46,16 +46,21 @@ export default function Login (){
     }
 
     return (
-        <div className="content">
+        <div className="login">
             <h2>Log in</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Email</label>
-                <input type="email" name="username" id="username" value={username} onChange={handleUsernameChange} required/>
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" value={password} onChange={handlePasswordChange} required/>
+                <div className="username">
+                    <label htmlFor="username">Email</label>
+                    <input type="email" name="username" id="username" value={username} onChange={handleUsernameChange} required/>
+                </div>
+                <div className="password">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" id="password" value={password} onChange={handlePasswordChange} required/>
+                </div>
                 <button type="submit">Log in</button>
+                <Errors errors={formErrors}/>
+
             </form>
-            <Errors errors={formErrors}/>
         </div>
     )
 }

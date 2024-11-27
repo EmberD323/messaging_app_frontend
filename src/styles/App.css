@@ -8,6 +8,7 @@
   --mindaro: #d7f171ff;
   font-family: "Arvo", serif;
   height:100vh;
+  box-sizing: border-box;
 }
 body{
   margin: 0;
@@ -43,13 +44,13 @@ body{
   padding:5px 10px;
   color:var(--wenge)
 }
-.user>button:hover{
-  box-shadow: 0px 0px 10px 0px #000000;
+.user>button:hover,.login>form>button:hover{
+  box-shadow: 0px 0px 5px 0px #000000;
 }
-.navBar>h1{
+h1,h2{
   font-weight: 100;
 }
-.notLoggedIn{
+.notLoggedIn,.login,.signUp{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,7 +60,7 @@ body{
   padding: 25px;
   position: absolute;
   left: 50%;
-  top:30%;
+  top:20%;
   transform: translate(-50%, 50%);
   background-color: var(--cambridge-blue);
   border-radius: 10px;
@@ -67,14 +68,45 @@ body{
   color:white
 
 }
+.login{
+  min-height: 220px;
+}
+form>button{
+  background-color: var(--mindaro);
+  border:0px;
+  font-size: 15px;
+  border-radius: 2px;
+  padding:5px 10px;
+  color:var(--wenge);
+  align-self: flex-end;
+  margin: 0 auto;
+
+}
+.login>form{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  font-size: 15px;
+  
+}
+.login>form>.username,.login>form>.password{
+  display: flex;
+  gap:10px;
+  align-self: flex-end;
+}
 a{
   color: white;
 }
-/* .homepage{
-  background-image:url("../assets/vecteezy_striped-red-and-white-diagonal-pattern_7104340-1.jpg");
-  background-color: #cccccc;
-  background-size: contain;
-} */
+ul{
+  padding:0px;
+  margin: 0px;
+  color:rgb(180, 23, 23)
+}
+li{
+  list-style-type: none;
+}
+
+
 .formContainer#false,.profile>button#true{
   display:none;
 }
