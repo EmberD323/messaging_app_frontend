@@ -24,13 +24,29 @@ body{
   gap:15px;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
-.routes>a{
+.routes>a,.user>a{
   text-decoration: none;
   color: white;
   display: flex;
+  flex-wrap: wrap;
   gap:5px;
   align-items: center;
+}
+.user>button{
+  background-color: var(--light-green);
+  border:0px;
+  font-size: 15px;
+  border-radius: 2px;
+  padding:5px 10px;
+  color:var(--wenge)
+}
+.user>button:hover{
+  box-shadow: 0px 0px 10px 0px #000000;
+}
+.navBar>h1{
+  font-weight: 100;
 }
 .formContainer#false,.profile>button#true{
   display:none;

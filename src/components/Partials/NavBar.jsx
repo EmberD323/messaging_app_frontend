@@ -15,7 +15,7 @@ function NavBar({token,setToken}) {
                 <div className="routes">
                     <Link to="homepage">
                         <div>Home</div>
-                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/home.png" alt="home"/>
+                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/b5ef8a/home.png" alt="home"/>
                     </Link>
                 </div>
                 <h1 className="heading">Messaging App</h1>
@@ -32,12 +32,12 @@ function NavBar({token,setToken}) {
                 <div className="routes">
                     <Link to="homepage">
                         <div>Home</div>
-                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/home.png" alt="home"/>
+                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/b5ef8a/home.png" alt="home"/>
                     </Link>
 
                     <Link to="profile">
                         <div>My Profile</div>
-                        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" alt="person-male"/>
+                        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/b5ef8a/person-male.png" alt="person-male"/>
                     </Link>
                 </div>
                 <h1 className="heading">Messaging App</h1>
