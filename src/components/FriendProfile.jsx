@@ -39,7 +39,7 @@ export default function FriendProfile (){
     if(profile == null){
         return(
             <div className="profile">
-                <img src="https://rrkiqsthcekarglxlxcn.supabase.co/storage/v1/object/public/profile_pics/noprofile.png?t=2024-11-26T20%3A52%3A39.165Z" alt="profile_pic" class="profilePic"/>
+                <img src="https://rrkiqsthcekarglxlxcn.supabase.co/storage/v1/object/public/profile_pics/noprofile.png?t=2024-11-26T20%3A52%3A39.165Z" alt="profile_pic" className="profilePic"/>
                 <div className="name">Name: {user.first_name} {user.last_name}</div>
                 <div className="name">Email: {user.username}</div>
                 <div className="bio">Bio: </div>
@@ -48,7 +48,7 @@ export default function FriendProfile (){
     }
     return(
         <div className="profile">
-            <img src={profile.pictureURL} alt="profile_pic" class="profilePic"/>
+            <img src={profile.pictureURL} alt="profile_pic" className="profilePic"/>
             <div className="name">Name: {user.first_name} {user.last_name}</div>
             <div className="name">Email: {user.username}</div>
             <div className="bio">Bio: {profile.bio}</div>

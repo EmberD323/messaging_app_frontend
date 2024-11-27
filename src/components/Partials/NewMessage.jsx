@@ -9,7 +9,6 @@ export default function NewMessage ({selectedConversationPerson,selectedConversa
 
     //send message to db
     async function handleSubmit(e){
-        console.log("data new message",selectedConversationPerson,selectedConversation)
         e.preventDefault();
         const personID = selectedConversationPerson.id;
         const response = await fetch(import.meta.env.VITE_BACKEND+"/messages/", {

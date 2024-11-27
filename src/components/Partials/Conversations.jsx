@@ -9,7 +9,7 @@ function Conversations({receivedMessages,sentMessages}) {
     if(receivedMessages == null || sentMessages == null ){return}
     const [selectedConversation,setSelectedConversation]=useState(null);
     const [selectedConversationPerson,setSelectedConversationPerson]=useState(null);
-
+    
     //all people user has had conversations with
     const authors = receivedMessages.map((message) =>message.author);
     const receivers = sentMessages.map((message) =>message.receiver);
