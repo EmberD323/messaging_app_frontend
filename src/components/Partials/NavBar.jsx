@@ -15,13 +15,19 @@ function NavBar({token,setToken}) {
                 <div className="routes">
                     <Link to="homepage">
                         <div>Home</div>
-                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/b5ef8a/home.png" alt="home"/>
+                        <img width="25" height="25" src="https://img.icons8.com/ios/50/b5ef8a/home--v1.png" alt="home--v1"/>
                     </Link>
                 </div>
                 <h1 className="heading">Messaging App</h1>
                 <div className="user">
-                    <Link to="login">Log in</Link>
-                    <Link to="signup">Sign up</Link>
+                    <Link to="login">
+                        <div>Log in</div>
+                        <img width="25" height="25" src="https://img.icons8.com/ios/50/b5ef8a/login-rounded-right--v1.png" alt="login-rounded-right--v1"/>
+                    </Link>
+                    <Link to="signup">
+                        <div>Sign up</div>
+                        <img width="25" height="25" src="https://img.icons8.com/forma-thin/24/b5ef8a/add-user-male.png" alt="add-user-male"/>
+                    </Link>
                 </div>
             </div>
         )
@@ -32,13 +38,12 @@ function NavBar({token,setToken}) {
                 <div className="routes">
                     <Link to="homepage">
                         <div>Home</div>
-                        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/b5ef8a/home.png" alt="home"/>
+                        <img width="25" height="25" src="https://img.icons8.com/ios/50/b5ef8a/home--v1.png" alt="home--v1"/>
                     </Link>
 
                     <Link to="profile">
                         <div>My Profile</div>
-                        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/b5ef8a/person-male.png" alt="person-male"/>
-                    </Link>
+                        <img width="25" height="25" src="https://img.icons8.com/windows/32/b5ef8a/person-male.png" alt="person-male"/>                    </Link>
                 </div>
                 <h1 className="heading">Messaging App</h1>
                 <div className="user">
