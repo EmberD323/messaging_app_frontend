@@ -74,8 +74,9 @@ export default function SignUp (){
                     <input type="password" name="passwordConfirm" id="passwordConfirm" value={passwordConfirm} onChange={handlePasswordConfirmChange} required/>
                 </div>
                 <button type="submit" >Submit</button>
+                <Errors errors={formErrors}/>
+
             </form>
-            <Errors errors={formErrors}/>
         </div>
     )
 }

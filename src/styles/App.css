@@ -44,7 +44,7 @@ body{
   padding:5px 10px;
   color:var(--wenge)
 }
-.user>button:hover,.login>form>button:hover{
+.user>button:hover,.login>form>button:hover,.signUp>form>button:hover{
   box-shadow: 0px 0px 5px 0px #000000;
 }
 h1,h2{
@@ -71,6 +71,12 @@ h1,h2{
 .login{
   min-height: 220px;
 }
+.signUp{
+  padding:25px;
+  top:5%;
+  max-width: 280px;
+
+}
 form>button{
   background-color: var(--mindaro);
   border:0px;
@@ -80,16 +86,22 @@ form>button{
   color:var(--wenge);
   align-self: flex-end;
   margin: 0 auto;
-
 }
-.login>form{
+.login>form,.signUp>form{
   display: flex;
   flex-direction: column;
   gap:10px;
   font-size: 15px;
-  
 }
-.login>form>.username,.login>form>.password{
+p{
+  margin: 0px;
+  display: flex;
+}
+p>ul>li{
+  text-wrap:wrap;
+
+}
+.login>form>div,.signUp>form>div{
   display: flex;
   gap:10px;
   align-self: flex-end;
@@ -105,7 +117,9 @@ ul{
 li{
   list-style-type: none;
 }
-
+.errorList{
+  height:55px
+}
 
 .formContainer#false,.profile>button#true{
   display:none;

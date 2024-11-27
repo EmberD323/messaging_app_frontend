@@ -3,13 +3,13 @@ export default function Errors ({errors}){
         return
     }
     return (
-        <div className="errorList">
+        <p className="errorList">
             <ul >
                 {errors.map((error) => {
                     return <li key={crypto.randomUUID()}>{error.msg}</li>
                 })}
             </ul>
-        </div>
+        </p>
     )
 }
 
