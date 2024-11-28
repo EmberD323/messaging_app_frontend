@@ -1,9 +1,9 @@
 # Messaging - Front-end
 
-This the front-end website for a messaging application (A photo tagging app)
+This the front-end website for a messaging application.
 
 # Deployed
-- https://wheres-wally-d323.netlify.app/
+- https://messagingemberd232.netlify.app/
 # Github
 - Backend github: https://github.com/EmberD323/messaging_app_backend
 
