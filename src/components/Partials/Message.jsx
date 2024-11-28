@@ -27,12 +27,12 @@ function Message({message,loggedInUser}) {
     return (        
         <div className="message" id="false">
             <ProfileAvatar profile={message.author.profile} />
-            <div className="nameAndTime">
+
                 <div className="textAndTime">
                     <div className="text">{message.text}</div>
                     <div className="time">{dayMonthYear} @ {time}</div>
                 </div>
-            </div>
+
         </div>                
     )
 }

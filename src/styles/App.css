@@ -199,6 +199,7 @@ textarea{
 .currentConversation{
   display: flex;
   flex-direction: column;
+  padding: 0px 15px;
 }
 .currentConversation>ul{
   height: calc(100vh - 240px);
@@ -227,20 +228,24 @@ textarea{
   justify-content: flex-start;
 }
 .textAndTime{
-  
   padding: 15px 25px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap:5px;
-  max-width: 60%;
+  
 }
+
 .message#true>.textAndTime{
   background-color: var(--cambridge-blue);
+  max-width: 60%;
 }
-.message#false>.nameAndTime>.textAndTime{
+.message#false>.textAndTime{
+  max-width: 60%;
   background-color: var(--cool-gray);
+
 }
+
 .text{
   font-size: 15px;
 }
@@ -274,17 +279,24 @@ textarea{
 .formContainer#true,.profile>button#false{
   display: inline;
 }
-.avatar{
+div.avatar{
   width: 40px;
   height: 40px;
+ 
 }
-.profilePic{
-  width: 200px;
-  height: 200px;
+div.profilePic{
+  width: 150px;
+  height: 150px;
+  
+  
 }
-.profilePic,.avatar{
+div.profilePic,div.avatar{
   border-radius: 50%;
   border: var(--cool-gray) 2px solid;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+ 
 }
 .profile{
   padding-top: 5%;
