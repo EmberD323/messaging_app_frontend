@@ -4,9 +4,9 @@ import CurrentConversation from "./CurrentConversation"
 import ProfileAvatar from "./ProfileAvatar"
 import NewConversation from "./NewConversation"
 
-function Conversations({receivedMessages,sentMessages}) {
+function Conversations({receivedMessages,sentMessages,loggedInUser}) {
     //wait until messages loaded
-    if(receivedMessages == null || sentMessages == null ){return}
+    if(loggedInUser == null){return}
     const [selectedConversation,setSelectedConversation]=useState(null);
     const [selectedConversationPerson,setSelectedConversationPerson]=useState(null);
     
@@ -50,8 +50,8 @@ function Conversations({receivedMessages,sentMessages}) {
                 <ul>
                     {conversationsWith.map((author) => {
                         return(
-                            <li key={author.id} id={author.id}  >
-                                <div className="imageAndName">
+                            <li key={author.id} >
+                                <div className="imageAndName" id={author.id}>
                                     <ProfileAvatar profile={author.profile} handleConversationOpen={handleConversationOpen}/>
                                     <div className="name" onClick={handleConversationOpen} style={{cursor:"grab"}}>{author.first_name} {author.last_name}</div>
                                 </div>
@@ -61,7 +61,7 @@ function Conversations({receivedMessages,sentMessages}) {
                     })}
                 </ul>
             </div>
-            <CurrentConversation selectedConversation={selectedConversation} selectedConversationPerson={selectedConversationPerson} setSelectedConversation={setSelectedConversation}/> 
+            <CurrentConversation loggedInUser={loggedInUser} selectedConversation={selectedConversation} selectedConversationPerson={selectedConversationPerson} setSelectedConversation={setSelectedConversation}/> 
         </div>
     )
 }

@@ -1,17 +1,39 @@
 import ProfileAvatar from "./ProfileAvatar"
 
-function Message({message}) {
+function Message({message,loggedInUser}) {
     //structure date and time
+    //user =me
+    let authorMessage = "false";
+    if(message.author.id == loggedInUser.id){
+        authorMessage = "true"
+    }
+    //if author = me, set id to author message, if not notauthormesage
     const dateTime = new Date((Date.parse(message.createdAt)))
     const dayMonthYear = dateTime.getDay()+"/"+dateTime.getDate()+"/"+dateTime.getFullYear();
     const time = dateTime.getHours()+":"+dateTime.getMinutes()
     //return message details
-    return (
-            <>
+    if(message.author.id == loggedInUser.id){
+        return(
+        <div className="message" id="true">
+            <div className="textAndTime">
+                <div className="text">{message.text}</div>
+                <div className="time">{dayMonthYear} @ {time}</div>
+            </div>
             <ProfileAvatar profile={message.author.profile} />
-            <div className="name">{message.author.first_name} {message.author.last_name}</div>
-            <div className="time">{dayMonthYear} @ {time}</div><div className="text">{message.text}</div>
-            </>     
+
+        </div>
+        )
+    }
+    return (        
+        <div className="message" id="false">
+            <ProfileAvatar profile={message.author.profile} />
+            <div className="nameAndTime">
+                <div className="textAndTime">
+                    <div className="text">{message.text}</div>
+                    <div className="time">{dayMonthYear} @ {time}</div>
+                </div>
+            </div>
+        </div>                
     )
 }
 

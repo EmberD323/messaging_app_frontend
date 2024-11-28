@@ -41,14 +41,10 @@ export default function NewMessage ({selectedConversationPerson,selectedConversa
         setText(e.target.value)
     }
     return (
-        <div className="formContainer">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="text">New Message:</label>
                 <textarea name="text" id="text" value={text} onChange={handleTextChange}/>
                 <button type="submit" >Send</button>
             </form>
-            <Errors errors={formErrors}/>
-        </div>
     )
 }
 

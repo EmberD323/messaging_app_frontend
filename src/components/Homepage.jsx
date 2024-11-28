@@ -9,6 +9,7 @@ export default function HomePage (){
     const [loading,setLoading] = useState(true);
     const [receivedMessages,setReceivedMessages]=useState(null);
     const [sentMessages,setSentMessages]=useState(null);
+    const [loggedInUser,setLoggedInUser] =useState(null)
     //if not logged in
     if(typeof token == "object"){
         return (
@@ -31,7 +32,10 @@ export default function HomePage (){
             }
           })
           .then((response)=>response.json())
-          .then((json)=>setReceivedMessages(json))
+          .then((json)=>{
+            setReceivedMessages(json.messages);
+            setLoggedInUser(json.user);
+          })
           .catch((error)=>setError(error));
 
         fetch(import.meta.env.VITE_BACKEND +"/messages/sent",{
@@ -43,7 +47,10 @@ export default function HomePage (){
           }
         })
         .then((response)=>response.json())
-        .then((json)=>setSentMessages(json))
+        .then((json)=>{
+          setSentMessages(json.messages);
+          setLoggedInUser(json.user);
+        })
         .catch((error)=>setError(error))
         .finally(()=>setLoading(false));
     },[edit])
@@ -52,7 +59,7 @@ export default function HomePage (){
     if(loading) return <Loading/>
     return (
         <div className="homepage">
-            <Conversations receivedMessages={receivedMessages} sentMessages={sentMessages}/>
+            <Conversations receivedMessages={receivedMessages} sentMessages={sentMessages} loggedInUser={loggedInUser}/>
         </div>
     )
 }

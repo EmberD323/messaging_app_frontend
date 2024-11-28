@@ -20,15 +20,17 @@ export default function NewMessage ({handleConversationOpen}){
         }); 
         if(response.status != 200){//if theres errors
             const errors = await response.json();
+            console.log(errors)
             setFormErrors(errors)
         }
         else{
             const user = await response.json();
             e = {target:{parentNode:{id:user.id}}};
             handleConversationOpen(e,user);
+            setUsername("")
+            setFormErrors(null)
         }
-        setUsername("")
-        setFormErrors(null)
+        
 
     }
     function handleUsernameChange(e){
@@ -36,7 +38,7 @@ export default function NewMessage ({handleConversationOpen}){
     }
     return (
             <form onSubmit={handleSearch} className="findUser">
-                <input type="text" name="username" id="username" placeholder="Find user by email" value={username} onChange={handleUsernameChange}/>
+                <input type="email" name="username" id="username" placeholder="Find user by email" value={username} onChange={handleUsernameChange}/>
                 <button type="submit">Search</button>
                 <Errors errors={formErrors}/>
 

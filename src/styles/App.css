@@ -8,6 +8,7 @@
   --mindaro: #d7f171ff;
   font-family: "Arvo", serif;
   box-sizing: border-box;
+  
 }
 body{
   margin: 0;
@@ -43,12 +44,13 @@ body{
   padding:5px 10px;
   color:var(--wenge)
 }
-.user>button:hover,.login>form>button:hover,.signUp>form>button:hover,.findUser>button:hover{
-  box-shadow: 0px 0px 2px 0px #000000;
+button:hover{
+  box-shadow: 0px 0px 5px 0px #000000;
 }
 h1,h2{
   font-weight: 100;
 }
+
 .notLoggedIn,.login,.signUp{
   display: flex;
   flex-direction: column;
@@ -131,8 +133,6 @@ li{
 .conversationCards{
   background-color: var(--cambridge-blue);
   border-right: 1px solid rgba(0, 0, 0, 0.5);
-  height: 82vh;
-  overflow-y:auto;
 
 }
 
@@ -155,9 +155,9 @@ li{
 }
 .findUser>input{
   border-radius: 2px;
-  border: 0px;
   font-size: 12px;
   padding:5px;
+  border-radius: 5px;
 }
 .findUser>input:focus{
   border:0px;
@@ -166,13 +166,19 @@ li{
 input,button{
   font-family: "Arvo", serif;
 }
+textarea{
+  font-family: "Arvo", serif;
+  padding:5px;
+  border-radius: 5px;
+  
+
+}
 .conversationCards>ul{
-  height: 70vh;
   overflow-y:auto;
-  margin-top: 15px;
   display: flex;
   flex-direction: column;
-  
+  height: calc(100vh - 180px);
+  overflow-y:auto;
 }
 .conversationCards>ul>li{
   display: flex;
@@ -190,8 +196,78 @@ input,button{
   align-items: center;
   gap:10px
 }
+.currentConversation{
+  display: flex;
+  flex-direction: column;
+}
+.currentConversation>ul{
+  height: calc(100vh - 240px);
+  overflow-y:auto;
+  display: flex;
+  flex-direction: column;
+  gap:15px;
 
-
+  background-color: rgba(219, 216, 216, 0.555)
+}
+.currentConversation>a{
+  font-size: 20px;
+  color: black;
+  padding:10px 5px;
+  box-shadow: 5px 0px 5px 2px var(--wenge);
+}
+.message{
+  display: flex;
+  gap:5px;
+  align-items: center;
+}
+.message#true{
+  justify-content: flex-end;
+}
+.message#false{
+  justify-content: flex-start;
+}
+.textAndTime{
+  
+  padding: 15px 25px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+  max-width: 60%;
+}
+.message#true>.textAndTime{
+  background-color: var(--cambridge-blue);
+}
+.message#false>.nameAndTime>.textAndTime{
+  background-color: var(--cool-gray);
+}
+.text{
+  font-size: 15px;
+}
+.time{
+  font-size: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.currentConversation>form{
+  padding:15px;
+  display: flex;
+  gap:10px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 0px 0px 1px rgba(129, 126, 159, 0.459); 
+}
+.currentConversation>form>textarea{
+  width:80%;
+  font-size: 15px;
+  border:1px solid black;
+}
+.currentConversation>form>button{
+  border-radius: 5px;
+  background-color: var(--light-green);
+  padding:5px;
+  
+}
 .formContainer#false,.profile>button#true{
   display:none;
 }
@@ -208,7 +284,7 @@ input,button{
   border: var(--cool-gray) 2px solid;
 }
 .loading{
-  height:100vh;
+  /* height:100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
