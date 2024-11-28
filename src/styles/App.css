@@ -7,7 +7,6 @@
   --light-green: #b5ef8aff;
   --mindaro: #d7f171ff;
   font-family: "Arvo", serif;
-  height:100vh;
   box-sizing: border-box;
 }
 body{
@@ -44,8 +43,8 @@ body{
   padding:5px 10px;
   color:var(--wenge)
 }
-.user>button:hover,.login>form>button:hover,.signUp>form>button:hover{
-  box-shadow: 0px 0px 5px 0px #000000;
+.user>button:hover,.login>form>button:hover,.signUp>form>button:hover,.findUser>button:hover{
+  box-shadow: 0px 0px 2px 0px #000000;
 }
 h1,h2{
   font-weight: 100;
@@ -68,6 +67,9 @@ h1,h2{
   color:white
 
 }
+.notLoggedIn>div>a{
+  color: white;
+}
 .login{
   min-height: 220px;
 }
@@ -77,7 +79,7 @@ h1,h2{
   max-width: 280px;
 
 }
-form>button{
+.login>form>button,.signUp>form>button{
   background-color: var(--mindaro);
   border:0px;
   font-size: 15px;
@@ -106,12 +108,12 @@ p>ul>li{
   gap:10px;
   align-self: flex-end;
 }
-a{
-  color: white;
-}
+
 ul{
   padding:0px;
   margin: 0px;
+}
+.errorList>ul{
   color:rgb(180, 23, 23)
 }
 li{
@@ -120,6 +122,75 @@ li{
 .errorList{
   height:55px
 }
+.conversations{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  
+}
+
+.conversationCards{
+  background-color: var(--cambridge-blue);
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+  height: 82vh;
+  overflow-y:auto;
+
+}
+
+.findUser{
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap:5px;
+  align-items: center;
+  border-radius: 1px;
+
+}
+.findUser>button{
+  background-color: var(--cool-gray);
+  border:.5px black solid;
+  font-size: 12px;
+  border-radius: 2px;
+  padding: 5px;
+}
+.findUser>input{
+  border-radius: 2px;
+  border: 0px;
+  font-size: 12px;
+  padding:5px;
+}
+.findUser>input:focus{
+  border:0px;
+}
+
+input,button{
+  font-family: "Arvo", serif;
+}
+.conversationCards>ul{
+  height: 70vh;
+  overflow-y:auto;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  
+}
+.conversationCards>ul>li{
+  display: flex;
+  padding: 15px 5px 15px 20px;
+  border-radius: 1px;
+  box-shadow: 0px 1px 0px 1px rgba(129, 126, 159, 0.315); 
+  justify-content: space-between;
+}
+.conversationCards>ul>li>a{
+  font-size: 12px;
+  color: white;
+}
+.imageAndName{
+  display: flex;
+  align-items: center;
+  gap:10px
+}
+
 
 .formContainer#false,.profile>button#true{
   display:none;
@@ -131,7 +202,10 @@ li{
   max-width: 200px;
 }
 .avatar{
-  max-width: 50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: var(--cool-gray) 2px solid;
 }
 .loading{
   height:100vh;

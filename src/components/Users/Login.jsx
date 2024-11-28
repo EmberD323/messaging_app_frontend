@@ -18,7 +18,6 @@ export default function Login (){
     //submit login details to db
     async function handleSubmit(e){
         e.preventDefault();
-        console.log("hi")
         try {
             const response = await fetch(import.meta.env.VITE_BACKEND +"/login", {
               method: "POST",
@@ -28,7 +27,6 @@ export default function Login (){
                 },
               body: JSON.stringify({username,password}),
             });        
-            console.log(response)
             if(response.status != 200){
                 const json = await response.json();
                 setFormErrors(json.errors)

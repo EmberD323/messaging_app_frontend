@@ -27,20 +27,21 @@ export default function NewMessage ({handleConversationOpen}){
             e = {target:{parentNode:{id:user.id}}};
             handleConversationOpen(e,user);
         }
+        setUsername("")
+        setFormErrors(null)
 
     }
     function handleUsernameChange(e){
         setUsername(e.target.value)
     }
     return (
-        <div className="formContainer">
-            <form onSubmit={handleSearch}>
-                <label htmlFor="username">Find user by email:</label>
-                <input type="text" name="username" id="username" value={username} onChange={handleUsernameChange}/>
-                <button type="submit" >Search</button>
+            <form onSubmit={handleSearch} className="findUser">
+                <input type="text" name="username" id="username" placeholder="Find user by email" value={username} onChange={handleUsernameChange}/>
+                <button type="submit">Search</button>
+                <Errors errors={formErrors}/>
+
             </form>
-            <Errors errors={formErrors}/>
-        </div>
+
     )
 }
 
