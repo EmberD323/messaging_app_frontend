@@ -40,7 +40,8 @@ export default function Profile (){
         .catch((error)=>setError(error))
         .finally(()=>setLoading(false));
     },[updateProfile])
-    if(profile !=null){
+    let backgroundImageStyle;
+    if(profile !=null && profile.pictureURL != null){
         backgroundImageStyle={
             backgroundImage: "url('"+profile.pictureURL+"')",
           };
@@ -63,6 +64,23 @@ export default function Profile (){
             </div>
         )
     }
+    if(profile.pictureURL == null){
+        return(
+            <div className="profile">
+                <div className="profilePic" 
+                style={{backgroundImage: "url('https://rrkiqsthcekarglxlxcn.supabase.co/storage/v1/object/public/profile_pics/noprofile.png?t=2024-11-26T20%3A52%3A39.165Z')"}}>
+                </div>
+                <div className="name">Name: {user.first_name} {user.last_name}</div>
+                <div className="name">Email: {user.username}</div>
+                <div className="bio">Bio: {profile.bio}</div>
+                <button onClick={handleFormOpen} id={formOpen}>Update Profile</button>
+                <div className="formContainer" id={formOpen}>
+                <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} profile={profile}/>
+                </div>
+                </div>
+        )
+    }
+    
     return(
         <div className="profile">
             <h2>Profile</h2>

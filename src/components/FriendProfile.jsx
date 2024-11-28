@@ -1,6 +1,8 @@
 import { useOutletContext, useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Loading from "./Loading";
+import unraw from "unraw";
+
 
 
 export default function FriendProfile (){
@@ -36,7 +38,7 @@ export default function FriendProfile (){
         .finally(()=>setLoading(false));
     },[])
     let backgroundImageStyle;
-    if(profile !=null){
+    if(profile !=null && profile.pictureURL != null){
         backgroundImageStyle={
             backgroundImage: "url('"+profile.pictureURL+"')",
           };
@@ -44,7 +46,7 @@ export default function FriendProfile (){
 
     if(error) return <p>error</p>
     if(loading) return <Loading/>
-    if(profile == null){
+    if(profile == null ){
         return(
             <div className="profile">
                 <div className="profilePic" 
@@ -54,6 +56,19 @@ export default function FriendProfile (){
                 <div className="name">Email: {user.username}</div>
                 <div className="bio">Bio: </div>
             </div>
+        )
+    }
+    if(profile.pictureURL == null){
+        return(
+            <div className="profile">
+                <div className="profilePic" 
+                style={{backgroundImage: "url('https://rrkiqsthcekarglxlxcn.supabase.co/storage/v1/object/public/profile_pics/noprofile.png?t=2024-11-26T20%3A52%3A39.165Z')"}}>
+                </div>
+                <div className="name">Name: {user.first_name} {user.last_name}</div>
+                <div className="name">Email: {user.username}</div>
+                <div className="bio">Bio: {profile.bio}</div>
+                
+                </div>
         )
     }
     return(

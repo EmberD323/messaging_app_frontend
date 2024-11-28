@@ -10,7 +10,11 @@ function Message({message,loggedInUser}) {
     //if author = me, set id to author message, if not notauthormesage
     const dateTime = new Date((Date.parse(message.createdAt)))
     const dayMonthYear = dateTime.getDay()+"/"+dateTime.getDate()+"/"+dateTime.getFullYear();
-    const time = dateTime.getHours()+":"+dateTime.getMinutes()
+    let minutes = dateTime.getMinutes();
+    if (minutes < 10){
+        minutes = "0"+String(minutes)
+    }
+    const time = dateTime.getHours()+":"+minutes;
     //return message details
     if(message.author.id == loggedInUser.id){
         return(

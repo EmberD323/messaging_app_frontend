@@ -69,11 +69,15 @@ h1,h2{
   color:white
 
 }
+
 .notLoggedIn>div>a{
   color: white;
 }
 .login{
   min-height: 220px;
+}
+.login>div{
+  font-size: 15px;
 }
 .signUp{
   padding:25px;
@@ -199,9 +203,11 @@ textarea{
 .currentConversation{
   display: flex;
   flex-direction: column;
-  padding: 0px 15px;
+
 }
 .currentConversation>ul{
+
+  padding: 5px 15px;
   height: calc(100vh - 240px);
   overflow-y:auto;
   display: flex;

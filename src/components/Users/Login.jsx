@@ -46,6 +46,8 @@ export default function Login (){
     return (
         <div className="login">
             <h2>Log in</h2>
+            
+
             <form onSubmit={handleSubmit}>
                 <div className="username">
                     <label htmlFor="username">Email</label>
@@ -57,8 +59,11 @@ export default function Login (){
                 </div>
                 <button type="submit">Log in</button>
                 <Errors errors={formErrors}/>
-
+    
             </form>
+            <div>Or, use these dummy account credentials to try out the app:</div>
+            <div>Email -  jane.doe@gmail.com</div>
+            <div>Password - janespassword1</div>
         </div>
     )
 }
