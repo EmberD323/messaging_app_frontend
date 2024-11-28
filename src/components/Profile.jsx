@@ -50,7 +50,7 @@ export default function Profile (){
                 <div className="name">Name: {user.first_name} {user.last_name}</div>
                 <div className="name">Email: {user.username}</div>
                 <div className="bio">Bio: </div>
-                <button onClick={handleFormOpen}>Update Profile</button>
+                <button onClick={handleFormOpen} id={formOpen}>Update Profile</button>
                 <div className="formContainer" id={formOpen}>
                     <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} profile={{bio:" "}}/>
                 </div>
@@ -59,11 +59,12 @@ export default function Profile (){
     }
     return(
         <div className="profile">
+            <h2>Profile</h2>
             <img src={profile.pictureURL} alt="profile_pic" className="profilePic"/>
             <div className="name">Name: {user.first_name} {user.last_name}</div>
             <div className="name">Email: {user.username}</div>
             <div className="bio">Bio: {profile.bio}</div>
-            <button onClick={handleFormOpen}>Update Profile</button>
+            <button onClick={handleFormOpen} id={formOpen}>Update Profile</button>
             <div className="formContainer" id={formOpen}>
             <Update setUpdateProfile={setUpdateProfile} updateProfile={updateProfile} setFormOpen={setFormOpen} profile={profile}/>
             </div>

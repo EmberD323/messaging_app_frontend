@@ -274,17 +274,66 @@ textarea{
 .formContainer#true,.profile>button#false{
   display: inline;
 }
-.profilePic{
-  max-width: 200px;
-}
 .avatar{
   width: 40px;
   height: 40px;
+}
+.profilePic{
+  width: 200px;
+  height: 200px;
+}
+.profilePic,.avatar{
   border-radius: 50%;
   border: var(--cool-gray) 2px solid;
 }
+.profile{
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+form.updateProfile{
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding:15px;
+
+}
+form.updateProfile>.bio,form.updateProfile>.file{
+  display: flex;
+  gap:5px;
+  flex-wrap: wrap;
+
+  align-items: center;
+}
+form.updateProfile>.bio>textarea{
+  min-width: 200px;
+}
+form.updateProfile>button,.profile>button{
+  background-color: var(--light-green);
+  font-size: 15px;
+  border-radius: 5px;
+  padding:5px 10px;
+  color:var(--wenge);
+
+}
+.formContainer>h2,.profile>h2{
+  margin:0px;
+  padding:5px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+
+
+}
 .loading{
-  /* height:100vh; */
+  height:100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -46,16 +46,19 @@ export default function Update ({setUpdateProfile,updateProfile,setFormOpen,prof
         setFile(e.target.files[0])
     }
     return (
-        <div className="formContainer">
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <><h2>Update Profile</h2><form onSubmit={handleSubmit} encType="multipart/form-data" className="updateProfile">
+            <div className="bio">
                 <label htmlFor="bio">Bio:</label>
-                <textarea name="bio" id="bio" value={bio} onChange={handleBioChange}/>
+                <textarea name="bio" id="bio" value={bio} onChange={handleBioChange} />
+            </div>
+            <div className="file">
                 <label htmlFor="file">Profile Picture:</label>
-                <input type="file" name="file" file={file} onChange={handleFileChange} accept="image/*"/>
-                <button type="submit" >Update</button>
-            </form>
-            <Errors errors={formErrors}/>
-        </div>
+                <input type="file" name="file" file={file} onChange={handleFileChange} accept="image/*" />
+            </div>
+            <button type="submit">Update</button>
+            <Errors errors={formErrors} />
+        </form></>
+
     )
 }
 

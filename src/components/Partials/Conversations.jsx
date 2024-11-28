@@ -6,7 +6,7 @@ import NewConversation from "./NewConversation"
 
 function Conversations({receivedMessages,sentMessages,loggedInUser}) {
     //wait until messages loaded
-    if(loggedInUser == null){return}
+    if(receivedMessages == null || sentMessages == null ){return}
     const [selectedConversation,setSelectedConversation]=useState(null);
     const [selectedConversationPerson,setSelectedConversationPerson]=useState(null);
     

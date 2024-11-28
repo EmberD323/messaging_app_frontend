@@ -4,16 +4,16 @@ import { Link} from "react-router-dom";
 import { useState, useEffect } from 'react';
 
 function CurrentConversation({loggedInUser,selectedConversation,selectedConversationPerson,setSelectedConversation}) {
-    //wait for conversation to be selected
     
-    if(selectedConversation == null) return;
+    
     //scroll to bottom of messages on load
     useEffect(() => {
         const objDiv = document.querySelector(".scrollConvo");
         if(objDiv == null)return;
         objDiv.scrollTop = objDiv.scrollHeight;
      });
-     
+     //wait for conversation to be selected
+     if(selectedConversation == null) return;
     //return all messages
     return (
         <div className="currentConversation">
