@@ -17,6 +17,11 @@ export default function HomePage (){
             <img width="96" height="96" src="https://img.icons8.com/forma-light/96/d7f171/speech-bubble-with-dots.png" alt="speech-bubble-with-dots"/>
             <div>Welcome to Messaging App.</div>
             <div><Link to="login">Log in</Link> or <Link to="signup">Sign Up</Link> today to start chatting!</div>
+            <div className="dummy">
+              <div>Or, use these dummy account credentials to try out the app:</div>
+              <div>Email -  jane.doe@gmail.com</div>
+              <div>Password - janespassword1</div>
+            </div>
            </div>
           )
     }

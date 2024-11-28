@@ -73,10 +73,11 @@ h1,h2{
 .notLoggedIn>div>a{
   color: white;
 }
+
 .login{
   min-height: 220px;
 }
-.login>div{
+.login>div,.notLoggedIn>.dummy{
   font-size: 15px;
 }
 .signUp{

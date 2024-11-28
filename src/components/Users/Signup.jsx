@@ -77,6 +77,7 @@ export default function SignUp (){
                 <Errors errors={formErrors}/>
 
             </form>
+            
         </div>
     )
 }
