@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useOutletContext,useNavigate } from "react-router-dom";
 import Errors from "../Partials/Errors"
+import Loading from "../Loading";
 export default function Login (){
     const[username,setUsername] = useState("");
     const[password,setPassword] = useState("");
     const[formErrors,setFormErrors] = useState(null);
+    const [loading,setLoading] = useState(false);
+
     const [token,setToken,edit,setEdit] = useOutletContext();
+
 
     function handleUsernameChange(e){
         setUsername(e.target.value)
@@ -18,6 +22,7 @@ export default function Login (){
     //submit login details to db
     async function handleSubmit(e){
         e.preventDefault();
+        setLoading(true)
         try {
             const response = await fetch(import.meta.env.VITE_BACKEND +"/login", {
               method: "POST",
@@ -42,12 +47,10 @@ export default function Login (){
             console.error(er);
           }
     }
-
+    if(loading)return <Loading/>
     return (
         <div className="login">
             <h2>Log in</h2>
-            
-
             <form onSubmit={handleSubmit}>
                 <div className="username">
                     <label htmlFor="username">Email</label>
