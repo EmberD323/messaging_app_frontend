@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useOutletContext,useNavigate } from "react-router-dom";
 import Errors from "../Partials/Errors"
-import Loading from "../Loading";
+import loadingImage from "../../assets/icons8-loading-60.png"
 export default function Login (){
     const[username,setUsername] = useState("");
     const[password,setPassword] = useState("");
@@ -33,6 +33,7 @@ export default function Login (){
               body: JSON.stringify({username,password}),
             });        
             if(response.status != 200){
+                setLoading(false)
                 const json = await response.json();
                 setFormErrors(json.errors)
             }else{ 
@@ -47,7 +48,6 @@ export default function Login (){
             console.error(er);
           }
     }
-    if(loading)return <Loading/>
     return (
         <div className="login">
             <h2>Log in</h2>
@@ -61,6 +61,9 @@ export default function Login (){
                     <input type="password" name="password" id="password" value={password} onChange={handlePasswordChange} required/>
                 </div>
                 <button type="submit">Log in</button>
+                <img className="loadingImage" id={String(loading)}src={loadingImage} alt="loading" />
+
+
                 <Errors errors={formErrors}/>
     
             </form>

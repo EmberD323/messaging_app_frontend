@@ -95,12 +95,14 @@ h1,h2{
   color:var(--wenge);
   align-self: flex-end;
   margin: 0 auto;
+  
 }
 .login>form,.signUp>form{
   display: flex;
   flex-direction: column;
   gap:10px;
   font-size: 15px;
+  align-items: center;
 }
 p{
   margin: 0px;
@@ -371,4 +373,10 @@ form.updateProfile>button,.profile>button{
   to{
     transform: rotate(360deg);
   }
+}
+.loadingImage#false{
+  display: none;
+}
+.loadingImage#true{
+  width:50px
 }
