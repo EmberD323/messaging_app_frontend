@@ -1,6 +1,9 @@
 # Messaging - Front-end
 
-This the front-end website for a messaging application.
+This is the frontend for a messaging application.
+
+![image](https://github.com/user-attachments/assets/75af1992-06e5-4a9c-9de7-3febea5a4c53)
+
 
 # Deployed
 - https://messagingemberd232.netlify.app/
